@@ -1,0 +1,245 @@
+Dataset: AudioSet
+  name: AudioSet
+  url: https://research.google.com/audioset/index.html
+  evaluations number: 70
+
+Dataset: AudioCaps
+  name: AudioCaps
+  url: https://audiocaps.github.io/
+  evaluations number: 98
+
+Dataset: AVSpeech
+  name: AVSpeech
+  url: https://looking-to-listen.github.io/avspeech/
+  evaluations number: 0
+
+Dataset: UrbanSound8K
+  name: UrbanSound8K
+  url: https://urbansounddataset.weebly.com/urbansound8k.html
+  evaluations number: 4
+
+Dataset: ESC-50
+  name: ESC-50
+  url: https://github.com/karolpiczak/ESC-50
+  evaluations number: 54
+
+Dataset: LibriSpeech
+  name: LibriSpeech
+  url: http://www.openslr.org/12
+  evaluations number: 2
+
+Dataset: VGG-Sound
+  name: VGG-Sound
+  url: http://www.robots.ox.ac.uk/~vgg/data/vggsound/
+  evaluations number: 16
+
+Dataset: FSD50K
+  name: FSD50K
+  url: https://zenodo.org/record/4060432
+  evaluations number: 10
+
+Dataset: CommonVoice
+  name: CommonVoice
+  url: 
+  evaluations number: 
+
+Dataset: GTZAN
+  name: GTZAN
+  url: http://marsyas.info/index.html
+  evaluations number: 16
+
+Dataset: VoxCeleb
+  name: VoxCeleb
+  url: 
+  evaluations number: 
+
+Dataset: ICBHI Respiratory Sound Database
+  name: ICBHI Respiratory Sound Database
+  url: https://bhichallenge.med.auth.gr/ICBHI_2017_Challenge
+  evaluations number: 22
+
+Dataset: SHD
+  name: SHD
+  url: https://zenkelab.org/resources/spiking-heidelberg-datasets-shd/
+  evaluations number: 11
+
+Dataset: Speech Commands V2
+  name: Speech Commands V2
+  url: 
+  evaluations number: 
+
+Dataset: TAU2020
+  name: TAU2020
+  url: 
+  evaluations number: 
+
+Dataset: TUT Sound Events
+  name: TUT Sound Events
+  url: 
+  evaluations number: 
+
+Dataset: MACS
+  name: MACS
+  url: 
+  evaluations number: 
+
+Dataset: MagnaTagATune
+  name: MagnaTagATune
+  url: http://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset
+  evaluations number: 3
+
+Dataset: Kinetics700
+  name: Kinetics700
+  url: 
+  evaluations number: 
+
+Dataset: MusicNet
+  name: MusicNet
+  url: https://zenodo.org/record/5120004#.Yhxr0-jMJBA
+  evaluations number: 6
+
+Dataset: Emodb
+  name: Emodb
+  url: 
+  evaluations number: 
+
+Dataset: SEP-28k
+  name: SEP-28k
+  url: https://arxiv.org/pdf/2102.12394.pdf
+  evaluations number: 0
+
+Dataset: EPIC-SOUNDS
+  name: EPIC-SOUNDS
+  url: https://epic-kitchens.github.io/epic-sounds/
+  evaluations number: 2
+
+Dataset: MINDS-14
+  name: MINDS-14
+  url: https://huggingface.co/datasets/PolyAI/minds14
+  evaluations number: 0
+
+Dataset: BGG
+  name: BGG
+  url: 
+  evaluations number: 
+
+Dataset: ReefSet
+  name: ReefSet
+  url: https://doi.org/10.5281/zenodo.11071202
+  evaluations number: 0
+
+Dataset: Multimodal PISA
+  name: Multimodal PISA
+  url: https://github.com/ParitoshParmar/Piano-Skills-Assessment
+  evaluations number: 3
+
+Dataset: WavText5k
+  name: WavText5k
+  url: 
+  evaluations number: 
+
+Dataset: Openmic
+  name: Openmic
+  url: 
+  evaluations number: 
+
+Dataset: MELD
+  name: MELD
+  url: https://affective-meld.github.io/
+  evaluations number: 68
+
+Dataset: Medley-solos-db
+  name: Medley-solos-db
+  url: 
+  evaluations number: 
+
+Dataset: FLEURS
+  name: FLEURS
+  url: https://huggingface.co/datasets/google/fleurs
+  evaluations number: 3
+
+Dataset: Audio Dialogues
+  name: Audio Dialogues
+  url: 
+  evaluations number: 
+
+Dataset: DEEP-VOICE
+  name: DEEP-VOICE
+  url: 
+  evaluations number: 
+
+Dataset: RAVDESS Emotional speech audio
+  name: RAVDESS Emotional speech audio
+  url: 
+  evaluations number: 
+
+Dataset: SoundDesc
+  name: SoundDesc
+  url: 
+  evaluations number: 
+
+Dataset: Switchboard
+  name: Switchboard
+  url: 
+  evaluations number: 
+
+Dataset: MUSDB18
+  name: MUSDB18
+  url: https://sigsep.github.io/datasets/musdb.html
+  evaluations number: 29
+
+Dataset: DiCOVA
+  name: DiCOVA
+  url: https://dicova2021.github.io/
+  evaluations number: 3
+
+Dataset: IEMOCAP
+  name: IEMOCAP
+  url: https://sail.usc.edu/iemocap/iemocap_publication.htm
+  evaluations number: 81
+
+Dataset: WSJ0
+  name: WSJ0
+  url: 
+  evaluations number: 
+
+Dataset: DEMAND
+  name: DEMAND
+  url: 
+  evaluations number: 
+
+Dataset: Coswara Dataset
+  name: Coswara Dataset
+  url: 
+  evaluations number: 
+
+Dataset: WavCaps
+  name: WavCaps
+  url: 
+  evaluations number: 0
+
+Dataset: Ted-Lium 3
+  name: Ted-Lium 3
+  url: 
+  evaluations number: 
+
+Dataset: CoughVid
+  name: CoughVid
+  url: 
+  evaluations number: 
+
+Dataset: Wham!
+  name: Wham!
+  url: 
+  evaluations number: 
+
+Dataset: Cat Meow
+  name: Cat Meow
+  url: 
+  evaluations number: 
+
+Dataset: CochlScene
+  name: CochlScene
+  url: https://github.com/cochlearai/cochlscene
+  evaluations number: 2
+
