@@ -52,13 +52,15 @@ def get_number_of_evaluations(evaluation_ids):
 if __name__ == "__main__":
     datasets = [
         "AudioSet", "AudioCaps", "AVSpeech", "UrbanSound8K", "ESC-50", "LibriSpeech",
-        "VGG-Sound", "FSD50K", "CommonVoice", "GTZAN", "VoxCeleb", "ICBHI Respiratory Sound Database",
-        "SHD", "Speech Commands V2", "TAU2020", "TUT Sound Events", "MACS", "MagnaTagATune",
-        "Kinetics700", "MusicNet", "Emodb", "SEP-28k", "EPIC-SOUNDS", "MINDS-14", "BGG",
-        "ReefSet", "Multimodal PISA", "WavText5k", "Openmic", "MELD", "Medley-solos-db",
-        "FLEURS", "Audio Dialogues", "DEEP-VOICE", "RAVDESS Emotional speech audio",
-        "SoundDesc", "Switchboard", "MUSDB18", "DiCOVA", "IEMOCAP", "WSJ0", "DEMAND",
-        "Coswara Dataset", "WavCaps", "Ted-Lium 3", "CoughVid", "Wham!", "Cat Meow", "CochlScene"
+        "VGG-Sound", "FSD50K", "Common Voice", "GTZAN", "VoxCeleb1", "ICBHI Respiratory Sound Database",
+        "SHD", "Speech Commands", "TAU-NIGENS Spatial Sound Events 2020", "TUT Sound Events 2017",
+        "MACS (Multi-Annotator Captioned Soundscapes)", "MagnaTagATune",
+        "Kinetics-700", "MusicNet", "EmoDB Dataset (Berlin Database of Emotional Speech)", "SEP-28k", "EPIC-SOUNDS",
+        "MINDS-14", "BGG dataset (PUBG Gun Sound Dataset)", "ReefSet", "Multimodal PISA", "WavText5k", "OpenMIC-2018",
+        "MELD", "MedleyDB", "FLEURS", "Audio Dialogues", "DEEP-VOICE: DeepFake Voice Recognition (Jordan Bird)",
+        "RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song)", "SoundDesc", "Switchboard-1 Corpus",
+        "MUSDB18", "DiCOVA", "IEMOCAP", "WSJ0-2mix", "DEMAND", "Coswara Dataset", "WavCaps", "TED-LIUM", "COUGHVID",
+        "WHAM! (WSJ0 Hipster Ambient Mixtures)", "Cat Meow", "CochlScene", "SONYC-UST-V2"
     ]
 
     all_datasets_info = {}
