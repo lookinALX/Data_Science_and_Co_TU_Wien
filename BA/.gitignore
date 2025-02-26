@@ -5,3 +5,4 @@ __pycache__/
 src/bot/__pycache__/
 src/scripts/__pycache__/
 .venv/
+data/
