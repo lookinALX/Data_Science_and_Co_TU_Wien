@@ -181,9 +181,9 @@ if dataset == 'UrbanSound8K':
     dataset_path_audio = 'data\\UrbanSound8K\\audio'
     path_to_store_preprocessed_data = "data\\UrbanSound8K_preprocessed" # path to store preprocessed data preveribly to speed up reading
 
-train_set = SUBSET(dataset_path_meta, dataset_path_audio, "training", device=device) 
-test_set = SUBSET(dataset_path_meta, dataset_path_audio, "testing", device=device)
-valid_set = SUBSET(dataset_path_meta, dataset_path_audio, "validation", device=device)
+train_set = SUBSET(dataset_path_meta, dataset_path_audio, "training") 
+test_set = SUBSET(dataset_path_meta, dataset_path_audio, "testing")
+valid_set = SUBSET(dataset_path_meta, dataset_path_audio, "validation")
 
 #train_set = SubsetSC(dataset_path, "training",  path = path_to_store_preprocessed_data) 
 #test_set = SubsetSC(dataset_path, "testing",  path = path_to_store_preprocessed_data)
