@@ -52,7 +52,7 @@ def resample_if_not_sample_rate(waveform, sr, sample_rate):
 class UrbanSoundDataset(Dataset):
     def __init__(self, metadata_file, audio_dir, subset: str = None, download: bool = False, 
                  device='cpu', sample_rate=16000, num_samples=160000, transform=None, 
-                 path='data\\UrbanSound8K'):
+                 path='data\\UrbanSound8K', custom_metadata=None):
         # device is the device where the data should be stored
         self.audio_dir = audio_dir
         self.sample_rate = sample_rate
@@ -60,21 +60,28 @@ class UrbanSoundDataset(Dataset):
         self.transform = transform
         self.device = device
 
+        # Load full metadata
         metadata = pd.read_csv(metadata_file)
 
         # map class labels to integers
         self.named_labels = sorted(metadata['class'].unique())
         self.class_mapping = {label: idx for idx, label in enumerate(self.named_labels)}
 
-        # split data according to subset
-        if subset == "validation": # fold 9
+        # If custom_metadata is provided, use it instead of filtering by subset
+        if custom_metadata is not None:
+            self.metadata = custom_metadata
+        # Otherwise, split data according to subset
+        elif subset == "validation": # fold 9
             self.metadata = metadata[metadata['fold'] == 9]
         elif subset == "testing": # fold 10
             self.metadata = metadata[metadata['fold'] == 10]
         elif subset == "training":
             self.metadata = metadata[metadata['fold'].isin(range(1, 9))]
+        elif subset == "custom":
+            # Empty metadata for custom_metadata case, will be populated later
+            self.metadata = pd.DataFrame()
         else:
-            raise ValueError("subset should be 'training', 'validation' or 'testing'")
+            raise ValueError("subset should be 'training', 'validation', 'testing', or 'custom'")
         
         # generate file paths based on metadata
         self.walker = [os.path.normpath(os.path.join(
@@ -87,15 +94,24 @@ class UrbanSoundDataset(Dataset):
         if not os.path.exists(path):
             os.makedirs(path)
         
+        # For custom subset, generate a unique identifier based on fold information
+        cache_id = ""
+        if custom_metadata is not None:
+            folds = sorted(custom_metadata['fold'].unique())
+            cache_id = f"_folds_{'_'.join(map(str, folds))}"
+        
+        cache_path_audio = os.path.join(path, f"{subset}{cache_id}_audios.pt")
+        cache_path_labels = os.path.join(path, f"{subset}{cache_id}_labels.pt")
+        
         # load or create cached data
-        if os.path.exists(path + subset + 'audios.pt') and os.path.exists(path + subset + 'labels.pt'):
-            self.audios = torch.load(path + subset + 'audios.pt', weights_only=True)
-            self.labels = torch.load(path + subset + 'labels.pt', weights_only=True)
+        if os.path.exists(cache_path_audio) and os.path.exists(cache_path_labels):
+            self.audios = torch.load(cache_path_audio, weights_only=True)
+            self.labels = torch.load(cache_path_labels, weights_only=True)
         else:
             self.audios = []
             self.labels = []
             
-            for item in tqdm(self.walker, desc=f"Loading {subset} set"):
+            for item in tqdm(self.walker, desc=f"Loading {subset}{cache_id} set"):
                 waveform, sr = torchaudio.load(item)
                 waveform = to_mono_if_stereo(waveform)
                 waveform = resample_if_not_sample_rate(waveform, sr, sample_rate)
@@ -112,24 +128,27 @@ class UrbanSoundDataset(Dataset):
             self.labels = torch.tensor(self.labels)
             
             # normalize using training set statistics
-            if subset != "training":
-                if not os.path.exists(path + "mean.pt") or not os.path.exists(path + "std.pt"):
+            if subset != "training" and "training" not in cache_id:
+                mean_path = os.path.join(path, "mean.pt")
+                std_path = os.path.join(path, "std.pt")
+                
+                if not os.path.exists(mean_path) or not os.path.exists(std_path):
                     # this will trigger training set calculation if not already done
                     UrbanSoundDataset(metadata_file, audio_dir, "training", device=device, 
                                     sample_rate=sample_rate, num_samples=num_samples, path=path)
-                self.mean = torch.load(path + "mean.pt")
-                self.std = torch.load(path + "std.pt")
+                self.mean = torch.load(mean_path)
+                self.std = torch.load(std_path)
             else:
                 self.mean = self.audios.mean()
                 self.std = self.audios.std()
-                torch.save(self.mean, path + "mean.pt")
-                torch.save(self.std, path + "std.pt")
+                torch.save(self.mean, os.path.join(path, "mean.pt"))
+                torch.save(self.std, os.path.join(path, "std.pt"))
                 
             print(f"Dataset mean={self.mean} std={self.std}")
             self.audios = (self.audios - self.mean) / (self.std + 1e-5)
                 
-            torch.save(self.audios, path + subset + 'audios.pt')
-            torch.save(self.labels, path + subset + 'labels.pt')
+            torch.save(self.audios, cache_path_audio)
+            torch.save(self.labels, cache_path_labels)
             
         self.audios = self.audios.to(device)
         self.labels = self.labels.to(device)
