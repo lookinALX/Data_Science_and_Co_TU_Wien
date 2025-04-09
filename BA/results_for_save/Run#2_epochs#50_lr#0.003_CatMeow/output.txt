@@ -1,0 +1,109 @@
+Echoing to file start
+Save config dict to file
+Set seed to 1234
+Start loading data
+End loading data
+Generate Datalaoder
+Generate Datalaoder end
+Start training
+step=0 loss=1.3261 running loss=1.3216 , time=4.8112 expected time=96.2243
+Epoch 1, train_loss=1.0918, train_acc=0.4058 val_loss=1.1694,  val_acc=0.4776
+step=0 loss=0.9233 running loss=0.9190 , time=0.4245 expected time=8.4905
+Epoch 2, train_loss=1.0009, train_acc=0.4513 val_loss=5.2937,  val_acc=0.4776
+step=0 loss=0.8133 running loss=0.8102 , time=0.4346 expected time=8.6929
+Epoch 3, train_loss=0.9899, train_acc=0.5065 val_loss=1.4268,  val_acc=0.3433
+step=0 loss=0.7912 running loss=0.7875 , time=0.4311 expected time=8.6217
+Epoch 4, train_loss=0.9612, train_acc=0.4968 val_loss=1.0796,  val_acc=0.4627
+step=0 loss=0.7404 running loss=0.7364 , time=0.4283 expected time=8.5658
+Epoch 5, train_loss=0.9796, train_acc=0.4870 val_loss=12.1043,  val_acc=0.4776
+step=0 loss=0.6827 running loss=0.6808 , time=0.4306 expected time=8.6116
+Epoch 6, train_loss=0.9640, train_acc=0.5390 val_loss=1.0644,  val_acc=0.4030
+step=0 loss=0.6142 running loss=0.6120 , time=0.4369 expected time=8.7374
+Epoch 7, train_loss=0.9465, train_acc=0.5162 val_loss=3.9688,  val_acc=0.4776
+step=0 loss=0.6622 running loss=0.6610 , time=0.4305 expected time=8.6102
+Epoch 8, train_loss=0.9764, train_acc=0.5097 val_loss=1.0472,  val_acc=0.4179
+step=0 loss=0.7086 running loss=0.7068 , time=0.4299 expected time=8.5980
+Epoch 9, train_loss=0.9295, train_acc=0.5487 val_loss=4.3700,  val_acc=0.4776
+step=0 loss=0.6190 running loss=0.6171 , time=0.4301 expected time=8.6029
+Epoch 10, train_loss=0.9485, train_acc=0.5390 val_loss=1.1739,  val_acc=0.2985
+step=0 loss=0.8975 running loss=0.8962 , time=0.4390 expected time=8.7793
+Epoch 11, train_loss=0.9475, train_acc=0.5519 val_loss=2.8772,  val_acc=0.4776
+step=0 loss=0.7108 running loss=0.7089 , time=0.4302 expected time=8.6036
+Epoch 12, train_loss=0.8961, train_acc=0.5617 val_loss=8.1683,  val_acc=0.4776
+step=0 loss=0.5830 running loss=0.5810 , time=0.4311 expected time=8.6216
+Epoch 13, train_loss=0.9096, train_acc=0.5227 val_loss=1.2397,  val_acc=0.4776
+step=0 loss=0.7485 running loss=0.7469 , time=0.4303 expected time=8.6057
+Epoch 14, train_loss=0.8490, train_acc=0.5617 val_loss=0.9955,  val_acc=0.5672
+step=0 loss=0.6428 running loss=0.6415 , time=0.4325 expected time=8.6497
+Epoch 15, train_loss=0.8673, train_acc=0.5877 val_loss=0.9786,  val_acc=0.5224
+step=0 loss=0.6179 running loss=0.6162 , time=0.4299 expected time=8.5974
+Epoch 16, train_loss=0.8275, train_acc=0.5909 val_loss=4.3746,  val_acc=0.4776
+step=0 loss=0.6146 running loss=0.6128 , time=0.4297 expected time=8.5948
+Epoch 17, train_loss=0.8091, train_acc=0.6169 val_loss=0.9626,  val_acc=0.5373
+step=0 loss=0.6107 running loss=0.6095 , time=0.4297 expected time=8.5947
+Epoch 18, train_loss=0.7685, train_acc=0.6104 val_loss=0.9146,  val_acc=0.5821
+step=0 loss=0.5794 running loss=0.5776 , time=0.4326 expected time=8.6514
+Epoch 19, train_loss=0.8685, train_acc=0.5097 val_loss=1.2309,  val_acc=0.4776
+step=0 loss=0.6685 running loss=0.6673 , time=0.4315 expected time=8.6291
+Epoch 20, train_loss=0.8818, train_acc=0.5584 val_loss=1.9205,  val_acc=0.4776
+step=0 loss=0.6110 running loss=0.6099 , time=0.4338 expected time=8.6766
+Epoch 21, train_loss=0.7584, train_acc=0.6104 val_loss=0.9295,  val_acc=0.5075
+step=0 loss=0.6534 running loss=0.6516 , time=0.4378 expected time=8.7553
+Epoch 22, train_loss=0.7610, train_acc=0.5714 val_loss=2.5609,  val_acc=0.4776
+step=0 loss=0.5034 running loss=0.5025 , time=0.4404 expected time=8.8078
+Epoch 23, train_loss=0.7018, train_acc=0.6721 val_loss=1.1075,  val_acc=0.5522
+step=0 loss=0.5277 running loss=0.5268 , time=0.4302 expected time=8.6043
+Epoch 24, train_loss=0.7092, train_acc=0.6136 val_loss=0.9268,  val_acc=0.5224
+step=0 loss=0.5806 running loss=0.5795 , time=0.4293 expected time=8.5862
+Epoch 25, train_loss=0.7341, train_acc=0.6494 val_loss=1.0595,  val_acc=0.5821
+step=0 loss=0.5210 running loss=0.5209 , time=0.4688 expected time=9.3758
+Epoch 26, train_loss=0.7531, train_acc=0.6266 val_loss=1.0760,  val_acc=0.4776
+step=0 loss=0.5170 running loss=0.5167 , time=0.4715 expected time=9.4294
+Epoch 27, train_loss=0.6765, train_acc=0.6266 val_loss=1.0544,  val_acc=0.3881
+step=0 loss=0.4775 running loss=0.4769 , time=0.4706 expected time=9.4113
+Epoch 28, train_loss=0.6548, train_acc=0.6688 val_loss=0.9671,  val_acc=0.5224
+step=0 loss=0.5261 running loss=0.5254 , time=0.4761 expected time=9.5225
+Epoch 29, train_loss=0.6326, train_acc=0.6688 val_loss=1.0975,  val_acc=0.5373
+step=0 loss=0.4899 running loss=0.4888 , time=0.4724 expected time=9.4481
+Epoch 30, train_loss=0.6290, train_acc=0.6558 val_loss=0.9640,  val_acc=0.5224
+step=0 loss=0.5334 running loss=0.5326 , time=0.4738 expected time=9.4754
+Epoch 31, train_loss=0.6556, train_acc=0.6364 val_loss=1.1429,  val_acc=0.4328
+step=0 loss=0.5090 running loss=0.5088 , time=0.4793 expected time=9.5863
+Epoch 32, train_loss=0.6252, train_acc=0.6851 val_loss=0.9741,  val_acc=0.5522
+step=0 loss=0.5145 running loss=0.5141 , time=0.4701 expected time=9.4024
+Epoch 33, train_loss=0.5897, train_acc=0.6883 val_loss=1.7030,  val_acc=0.4478
+step=0 loss=0.5164 running loss=0.5158 , time=0.4858 expected time=9.7151
+Epoch 34, train_loss=0.5661, train_acc=0.7110 val_loss=1.1525,  val_acc=0.5224
+step=0 loss=0.4894 running loss=0.4888 , time=0.4668 expected time=9.3364
+Epoch 35, train_loss=0.5347, train_acc=0.7240 val_loss=1.0499,  val_acc=0.5672
+step=0 loss=0.4668 running loss=0.4659 , time=0.4755 expected time=9.5109
+Epoch 36, train_loss=0.5183, train_acc=0.7305 val_loss=1.2525,  val_acc=0.5224
+step=0 loss=0.4768 running loss=0.4758 , time=0.4988 expected time=9.9761
+Epoch 37, train_loss=0.5083, train_acc=0.7370 val_loss=1.1412,  val_acc=0.5224
+step=0 loss=0.4858 running loss=0.4847 , time=0.5096 expected time=10.1923
+Epoch 38, train_loss=0.5046, train_acc=0.7403 val_loss=1.1829,  val_acc=0.5224
+step=0 loss=0.4833 running loss=0.4823 , time=0.5034 expected time=10.0675
+Epoch 39, train_loss=0.4854, train_acc=0.7532 val_loss=1.1359,  val_acc=0.5821
+step=0 loss=0.4795 running loss=0.4785 , time=0.4800 expected time=9.6007
+Epoch 40, train_loss=0.4667, train_acc=0.7695 val_loss=1.2385,  val_acc=0.5970
+step=0 loss=0.4671 running loss=0.4660 , time=0.4752 expected time=9.5046
+Epoch 41, train_loss=0.4443, train_acc=0.7565 val_loss=1.1900,  val_acc=0.5672
+step=0 loss=0.4859 running loss=0.4848 , time=0.5000 expected time=10.0004
+Epoch 42, train_loss=0.4221, train_acc=0.7890 val_loss=1.1797,  val_acc=0.5821
+step=0 loss=0.4754 running loss=0.4742 , time=0.4490 expected time=8.9805
+Epoch 43, train_loss=0.4024, train_acc=0.8019 val_loss=1.2140,  val_acc=0.6119
+step=0 loss=0.4706 running loss=0.4694 , time=0.4629 expected time=9.2575
+Epoch 44, train_loss=0.3872, train_acc=0.8247 val_loss=1.2332,  val_acc=0.6119
+step=0 loss=0.4737 running loss=0.4723 , time=0.4517 expected time=9.0349
+Epoch 45, train_loss=0.3775, train_acc=0.8312 val_loss=1.2585,  val_acc=0.6269
+step=0 loss=0.4731 running loss=0.4716 , time=0.4647 expected time=9.2942
+Epoch 46, train_loss=0.3704, train_acc=0.8377 val_loss=1.2791,  val_acc=0.6269
+step=0 loss=0.4730 running loss=0.4714 , time=0.4550 expected time=9.0997
+Epoch 47, train_loss=0.3656, train_acc=0.8409 val_loss=1.2950,  val_acc=0.6269
+step=0 loss=0.4718 running loss=0.4702 , time=0.4934 expected time=9.8673
+Epoch 48, train_loss=0.3627, train_acc=0.8409 val_loss=1.3051,  val_acc=0.6269
+step=0 loss=0.4705 running loss=0.4688 , time=0.4868 expected time=9.7363
+Epoch 49, train_loss=0.3611, train_acc=0.8442 val_loss=1.3106,  val_acc=0.6269
+step=0 loss=0.4699 running loss=0.4682 , time=0.4637 expected time=9.2741
+Epoch 50, train_loss=0.3606, train_acc=0.8442 val_loss=1.3126,  val_acc=0.6269
+Evaluate on test set

@@ -14,7 +14,7 @@ from time import time as get_time
 
 from torch.utils.data import Dataset, DataLoader
 from scripts.experimentManagerForWin import ExperimentManagerSaveFunction
-
+#if linux use --> from experimentManager import ExperimentManagerSaveFunction
 from efficientSsmLukin.ssm.model import SC_Model_classifier
 from efficientSsmLukin.utils import train_one_epoch, evaluate
 from efficientSsmLukin.utils import Echo_STDIO_to_File
@@ -35,7 +35,7 @@ if not os.path.exists(results_path):
 
 parser = argparse.ArgumentParser(description='Keyword spotting with 10-fold cross-validation')
 # optimizer
-parser.add_argument('--epochs', default=2, type=float, help='Training epochs'),
+parser.add_argument('--epochs', default=50, type=float, help='Training epochs'),
 # device
 parser.add_argument('--device', default='cuda:0', type=str,help='Device', choices=['cuda:0', 'cuda:1', 'cpu'])
 # seed
@@ -192,7 +192,7 @@ class UrbanSoundCV(Dataset):
             self.metadata_file, 
             self.audio_dir, 
             subset="custom", 
-            device=self.device,
+            device='cpu',
             sample_rate=self.sample_rate,
             transform=self.transform,
             path=self.path,
@@ -207,7 +207,7 @@ class UrbanSoundCV(Dataset):
             self.metadata_file, 
             self.audio_dir, 
             subset="custom", 
-            device=self.device,
+            device='cpu',
             sample_rate=self.sample_rate,
             transform=self.transform,
             path=self.path,
@@ -222,7 +222,7 @@ class UrbanSoundCV(Dataset):
             self.metadata_file, 
             self.audio_dir, 
             subset="custom", 
-            device=self.device,
+            device='cpu',
             sample_rate=self.sample_rate,
             transform=self.transform,
             path=self.path,

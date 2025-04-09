@@ -34,7 +34,7 @@ if not os.path.exists(results_path):
 
 parser = argparse.ArgumentParser(description='Keyword spotting')
 # Optimizer
-parser.add_argument('--epochs', default=2, type=float, help='Training epochs'),
+parser.add_argument('--epochs', default=50, type=float, help='Training epochs'),
 # Device
 parser.add_argument('--device', default='cuda:0', type=str,help='Device', choices=['cuda:0', 'cuda:1', 'cpu'])
 # Seed
@@ -77,7 +77,7 @@ parser.add_argument('--input_size', default=1, type=int, help='Input size')
 parser.add_argument('--hidden_sizes', default=[96, 80, 64, 48, 32, 16], type=list, help='Hidden sizes of the model')
 parser.add_argument('--output_sizes', default=[24, 32, 40, 48, 56, 64], type=list, help='Number of output classes, per layer')
 
-parser.add_argument('--dataset', default='UrbanSound8K', type=str, help='Dataset', choices=['UrbanSound8K', 'SpeechCommands', 'AudioMNIST'])
+parser.add_argument('--dataset', default='ESC-50', type=str, help='Dataset', choices=['UrbanSound8K', 'CatMeow', 'ESC-50','SpeechCommands', 'AudioMNIST'])
 #parser.add_argument('--classes', default=35, type=int, help='number of classes')
 # Parse arguments
 args = parser.parse_args()
@@ -117,6 +117,10 @@ dropout=0.0
 
 if dataset == 'UrbanSound8K':
     classes = 10
+elif dataset == 'CatMeow':
+    classes = 3
+elif dataset == 'ESC-50':
+    classes = 50
 else:
     raise ValueError("Dataset not implemented")
 
@@ -179,11 +183,21 @@ if dataset == 'UrbanSound8K':
     from datasets_utils_lad import UrbanSoundDataset as SUBSET
     dataset_path_meta = 'data\\UrbanSound8K\\metadata\\UrbanSound8K.csv'
     dataset_path_audio = 'data\\UrbanSound8K\\audio'
-    path_to_store_preprocessed_data = "data\\UrbanSound8K_preprocessed" # path to store preprocessed data preveribly to speed up reading
+    path_to_store_preprocessed_data = "data" # path to store preprocessed data preveribly to speed up reading
+if dataset == 'CatMeow':
+    from datasets_utils_lad import CatMeowDataset as SUBSET
+    dataset_path_meta = 'data\\CatMeow\\metadata\\CatMeow_metadata.csv'
+    dataset_path_audio = 'data\\CatMeow\\dataset'
+    path_to_store_preprocessed_data = "data\\CatMeow_preprocessed"
+if dataset == 'ESC-50':
+    from datasets_utils_lad import CatMeowDataset as SUBSET
+    dataset_path_meta = 'data\\ESC-50-master\\meta\\esc50.csv'
+    dataset_path_audio = 'data\\ESC-50-master\\audio'
+    path_to_store_preprocessed_data = "data\\ESC-50_preprocessed"
 
-train_set = SUBSET(dataset_path_meta, dataset_path_audio, "training") 
-test_set = SUBSET(dataset_path_meta, dataset_path_audio, "testing")
-valid_set = SUBSET(dataset_path_meta, dataset_path_audio, "validation")
+train_set = SUBSET(dataset_path_meta, dataset_path_audio, "training", path = path_to_store_preprocessed_data) 
+test_set = SUBSET(dataset_path_meta, dataset_path_audio, "testing", path = path_to_store_preprocessed_data)
+valid_set = SUBSET(dataset_path_meta, dataset_path_audio, "validation", path = path_to_store_preprocessed_data)
 
 #train_set = SubsetSC(dataset_path, "training",  path = path_to_store_preprocessed_data) 
 #test_set = SubsetSC(dataset_path, "testing",  path = path_to_store_preprocessed_data)
@@ -191,7 +205,7 @@ valid_set = SUBSET(dataset_path_meta, dataset_path_audio, "validation")
 print("End loading data")
 
 print("Generate Datalaoder")
-train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=pin_memory)
+train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=pin_memory)
 test_loader = torch.utils.data.DataLoader(test_set, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=num_workers, pin_memory=pin_memory)
 valid_loader = torch.utils.data.DataLoader(valid_set, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=num_workers, pin_memory=pin_memory)
 
@@ -223,14 +237,24 @@ optimizer = torch.optim.AdamW([
     {'params': params_other_lr, 'lr': 4*lr, 'weight_decay': weight_decay},
     ])
 
-scheduler = CosineAnnealingWarmupRestarts(optimizer,
-                                          first_cycle_steps=epochs*len(train_loader),
-                                          cycle_mult=1.0,
-                                          max_lr=4*lr,
-                                          min_lr=0,
-                                          warmup_steps=100,
-                                          gamma=1,
-)
+if dataset == "CatMeow":
+    scheduler = CosineAnnealingWarmupRestarts(optimizer,
+                                            first_cycle_steps=epochs*len(train_loader),
+                                            cycle_mult=1.0,
+                                            max_lr=4*lr,
+                                            min_lr=0,
+                                            warmup_steps=100,
+                                            gamma=1,
+    )
+else:
+    scheduler = CosineAnnealingWarmupRestarts(optimizer,
+                                            first_cycle_steps=epochs*len(train_loader),
+                                            cycle_mult=1.0,
+                                            max_lr=4*lr,
+                                            min_lr=0,
+                                            warmup_steps=int(epochs*len(train_loader) * 0.1),
+                                            gamma=1,
+    )
 
 
 # Train the model
