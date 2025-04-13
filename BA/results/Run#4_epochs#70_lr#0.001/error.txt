@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+
+  File "d:\projects\Data_Science_and_Co_TU_Wien\BA\scripts\train.py", line 277, in <module>
+    train_loss, train_acc, sub_epoch_info = train_one_epoch(model, criterion, optimizer, train_loader, regularize=True, scheduler=scheduler, sub_epoch_documentation=10, augments_use=augments)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "d:\projects\Data_Science_and_Co_TU_Wien\BA\efficientSsmLukin\utils.py", line 89, in train_one_epoch
+    running_loss += loss_weight.item()
+                    ~~~~~~~~~~~~~~~~^^
+
+KeyboardInterrupt
+

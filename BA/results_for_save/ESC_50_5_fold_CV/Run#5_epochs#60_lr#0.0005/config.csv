@@ -1,0 +1,29 @@
+,0
+lr,0.0005
+epochs,60
+device,cuda:0
+seed,1234
+num_workers,0
+batch_size,16
+input_size,1
+hidden_sizes,"[[96, 80, 64, 48, 32, 16]]"
+output_sizes,"[[24, 32, 40, 48, 56, 64]]"
+zeroOrderHoldRegularization,[[]]
+trainable_skip_connections,True
+input_bias,True
+bias_init,uniform
+output_bias,True
+complex_output,False
+norm,True
+norm_type,bn
+B_C_init,orthogonal
+stability,abs
+reduction,mean
+augments,none
+act,LeakyRELu
+weight_decay,0.04
+dropout,0.0
+classes,50
+dataset,ESC-50
+creator,looki
+timestamp,2025-04-13-17:50:15

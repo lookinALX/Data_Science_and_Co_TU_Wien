@@ -64,9 +64,12 @@ parser.add_argument('--use_validation', default=False, type=bool, help='Use vali
 
 # model definition
 parser.add_argument('--input_size', default=1, type=int, help='Input size')
+# S-Edge-Tiny 
+parser.add_argument('--hidden_sizes', default=[32, 16, 8], type=list, help='Hidden sizes of the model')
+parser.add_argument('--output_sizes', default=[8, 32, 64], type=list, help='Number of output classes, per layer')
 # S-Edge-L
-parser.add_argument('--hidden_sizes', default=[96, 80, 64, 48, 32, 16], type=list, help='Hidden sizes of the model')
-parser.add_argument('--output_sizes', default=[24, 32, 40, 48, 56, 64], type=list, help='Number of output classes, per layer')
+#parser.add_argument('--hidden_sizes', default=[96, 80, 64, 48, 32, 16], type=list, help='Hidden sizes of the model')
+#parser.add_argument('--output_sizes', default=[24, 32, 40, 48, 56, 64], type=list, help='Number of output classes, per layer')
 
 parser.add_argument('--dataset', default='UrbanSound8K', type=str, help='Dataset', choices=['UrbanSound8K'])
 # parse arguments

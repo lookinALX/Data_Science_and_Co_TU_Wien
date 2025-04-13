@@ -1,0 +1,30 @@
+,0
+lr,0.003
+epochs,50
+device,cuda:0
+seed,1234
+num_workers,0
+batch_size,16
+input_size,1
+hidden_sizes,"[[32, 16, 8]]"
+output_sizes,"[[8, 32, 64]]"
+zeroOrderHoldRegularization,[[]]
+trainable_skip_connections,True
+input_bias,True
+bias_init,uniform
+output_bias,True
+complex_output,False
+norm,True
+norm_type,bn
+B_C_init,orthogonal
+stability,abs
+reduction,mean
+augments,none
+act,LeakyRELu
+weight_decay,0.04
+dropout,0.0
+classes,10
+dataset,UrbanSound8K
+use_validation,False
+creator,looki
+timestamp,2025-04-12-21:59:30

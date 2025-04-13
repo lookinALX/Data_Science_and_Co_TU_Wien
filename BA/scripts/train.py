@@ -34,7 +34,7 @@ if not os.path.exists(results_path):
 
 parser = argparse.ArgumentParser(description='Keyword spotting')
 # Optimizer
-parser.add_argument('--epochs', default=50, type=float, help='Training epochs'),
+parser.add_argument('--epochs', default=60, type=float, help='Training epochs'),
 # Device
 parser.add_argument('--device', default='cuda:0', type=str,help='Device', choices=['cuda:0', 'cuda:1', 'cpu'])
 # Seed
@@ -45,7 +45,7 @@ parser.add_argument('--batch_size', default=16, type=int, help='Batch size')
 
 parser.add_argument('--zeroOrderHoldRegularization', default=[], type=list, help='Number of output classes, per layer')
 parser.add_argument('--trainable_skip_connections', default=True, type=bool, help='Trainable skip connections', choices=[True, False])
-parser.add_argument('--lr', default=0.003, type=float, help='Learning rate')
+parser.add_argument('--lr', default=0.0005, type=float, help='Learning rate')
 
 parser.add_argument('--input_bias', default=True, type=bool,help='Input bias', choices=[True, False])
 parser.add_argument('--bias_init', default='uniform', type=str,help='Bias initialization', choices=['zero', 'uniform'])
@@ -89,7 +89,8 @@ if args.seed == -1:
 else:
     seed = args.seed
 num_workers = args.num_workers
-pin_memory = True if (device == 'cuda:0') or (device == 'cuda:1') else False
+pin_memory = False
+#pin_memory = True if (device == 'cuda:0') or (device == 'cuda:1') else False
 print(f"CUDA available: {torch.cuda.is_available()}")
 print(f"Number of CUDA devices: {torch.cuda.device_count()}")
 batch_size = args.batch_size
@@ -237,7 +238,7 @@ optimizer = torch.optim.AdamW([
     {'params': params_other_lr, 'lr': 4*lr, 'weight_decay': weight_decay},
     ])
 
-if dataset == "CatMeow":
+if dataset != "CatMeow":
     scheduler = CosineAnnealingWarmupRestarts(optimizer,
                                             first_cycle_steps=epochs*len(train_loader),
                                             cycle_mult=1.0,
