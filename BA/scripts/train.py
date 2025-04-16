@@ -34,7 +34,7 @@ if not os.path.exists(results_path):
 
 parser = argparse.ArgumentParser(description='Keyword spotting')
 # Optimizer
-parser.add_argument('--epochs', default=60, type=float, help='Training epochs'),
+parser.add_argument('--epochs', default=70, type=float, help='Training epochs'),
 # Device
 parser.add_argument('--device', default='cuda:0', type=str,help='Device', choices=['cuda:0', 'cuda:1', 'cpu'])
 # Seed
@@ -45,7 +45,7 @@ parser.add_argument('--batch_size', default=16, type=int, help='Batch size')
 
 parser.add_argument('--zeroOrderHoldRegularization', default=[], type=list, help='Number of output classes, per layer')
 parser.add_argument('--trainable_skip_connections', default=True, type=bool, help='Trainable skip connections', choices=[True, False])
-parser.add_argument('--lr', default=0.0005, type=float, help='Learning rate')
+parser.add_argument('--lr', default=0.001, type=float, help='Learning rate')
 
 parser.add_argument('--input_bias', default=True, type=bool,help='Input bias', choices=[True, False])
 parser.add_argument('--bias_init', default='uniform', type=str,help='Bias initialization', choices=['zero', 'uniform'])
@@ -59,8 +59,8 @@ parser.add_argument('--norm_type', default='bn', type=str,help='Normalization ty
 parser.add_argument('--stability', default='abs', type=str,help='ensure stability', choices=['relu', 'abs'])
 parser.add_argument('--Reduction', default='mean', type=str,help='Reduction', choices=['mean', 'EWMA'])
 # parser.add_argument('--augments', default='strong', type=str, help='Augments', choices=['none', 'weak', 'strong'])
-# parser.add_argument('--augments', default='weak', type=str, help='Augments', choices=['none', 'weak', 'strong'])
-parser.add_argument('--augments', default='none', type=str, help='Augments', choices=['none', 'weak', 'strong'])
+parser.add_argument('--augments', default='weak', type=str, help='Augments', choices=['none', 'weak', 'strong'])
+# parser.add_argument('--augments', default='none', type=str, help='Augments', choices=['none', 'weak', 'strong'])
 parser.add_argument('--act', default='LeakyRELu', type=str, help='Augments', choices=['RELu', 'LeakyRELu', 'Identity'])
 parser.add_argument('--weight_decay', default=0.04, type=float, help='Weight decay')
 # parser.add_argument('--weight_decay', default=0.00, type=float, help='Weight decay')
